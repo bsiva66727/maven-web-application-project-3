@@ -24,6 +24,7 @@ cd maven-web-application-project-3/
 mvn clean package
 docker build -t maven-web .
 docker run -dt -p 9090:8080 maven-web
+http://3.17.56.254:9090/maven-web-application/
 ```
 
 
