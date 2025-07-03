@@ -22,14 +22,11 @@ RUN curl -fsSL https://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/bi
 WORKDIR /app
 
 # Clone Git repository (update with your repo URL)
-RUN git clone https://github.com/example-user/example-java-project.git .
+RUN git clone https://github.com/bsiva66727/maven-web-application-project-3.git
 
 # Run Maven build and SonarQube analysis (update details as needed)
 RUN mvn clean verify sonar:sonar \
-    -Dsonar.projectKey=example-project \
-    -Dsonar.host.url=http://your-sonarqube-url:9000 \
-    -Dsonar.login=your-sonarqube-token
-
-
+    -Dsonar.host.url=http://10.128.0.5:9000
+    
 FROM tomcat:8.0.20-jre8
 COPY target/maven-web-application*.war /usr/local/tomcat/webapps/maven-web-application.war
