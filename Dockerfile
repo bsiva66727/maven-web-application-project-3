@@ -24,9 +24,8 @@ WORKDIR /app
 # Clone Git repository (update with your repo URL)
 RUN git clone https://github.com/bsiva66727/maven-web-application-project-3.git
 
-# Run Maven build and SonarQube analysis (update details as needed)
-RUN mvn clean verify sonar:sonar \
-    -Dsonar.host.url=http://10.128.0.5:9000
+# Run Maven build 
+RUN mvn clean package
     
 FROM tomcat:8.0.20-jre8
 COPY target/maven-web-application*.war /usr/local/tomcat/webapps/maven-web-application.war
