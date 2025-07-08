@@ -4,7 +4,7 @@ metadata:
   name: maven
   namespace: default
   labels:
-    app: hello
+    app: maven
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
 spec:
@@ -15,5 +15,5 @@ spec:
     protocol: TCP
     targetPort: 80
   selector:
-    app: hello
+    app: maven
   type: LoadBalancer
