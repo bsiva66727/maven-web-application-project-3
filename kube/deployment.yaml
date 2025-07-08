@@ -1,21 +1,21 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: hello
+  name: maven
 spec:
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: hello
+      app: maven
   replicas: 3 # tells deployment to run 1 pods matching the template
   template: # create pods using pod definition in this template
     metadata:
       labels:
-        app: hello
+        app: maven
     spec:
       containers:
-      - name: hello
+      - name: maven
         image: gcr.io/strategic-altar-463506-c4/helloworld:latest
         ports:
         - containerPort: 80
